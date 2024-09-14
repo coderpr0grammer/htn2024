@@ -1,3 +1,4 @@
+import React from 'react';
 import { LandingGraph } from "@/components/landing-graph";
 import { Button } from "@/components/ui/button";
 import { InfiniteMovingCards } from "@/components/infinite-moving-cards";
@@ -29,11 +30,11 @@ export default function Home() {
         <Button className="ml-auto" variant={"ghost"}>Login</Button>
         <Button>Try NFA Free</Button>
       </header>
-      <section className="flex flex-col items-center gap-4 mt-20">
-        <div className="flex flex-col items-center text-[76px] font-extrabold" style={{ lineHeight: "1" }}>
+      <section className="flex flex-col items-center gap-4 mt-20 px-4">
+        <div className="flex flex-col items-center text-5xl sm:text-6xl md:text-7xl lg:text-[84px] font-extrabold text-center" style={{ lineHeight: "1.1" }}>
           <span>Finance for the rest of us.</span>
         </div>
-        <span className="text-center max-w-xl text-xl opacity-80">
+        <span className="text-center max-w-xl text-base sm:text-lg md:text-xl opacity-80">
           Create a strong financial future with personalized insights, tools, and resources. No financial expertise required.
         </span>
         <Button size="lg">Get Started</Button>
