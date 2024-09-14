@@ -2,6 +2,7 @@ import React from 'react';
 import { LandingGraph } from "@/components/landing-graph";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import Link from 'next/link';
 
 export default function Home() {
   return (
@@ -18,9 +19,13 @@ export default function Home() {
         <span className="text-center max-w-xl text-base sm:text-lg md:text-xl opacity-80">
           Create a strong financial future with personalized insights, tools, and resources. No financial expertise required.
         </span>
-        <Button size="lg">Get Started</Button>
+        <Button size="lg" asChild>
+          <Link href="/api/auth/login">
+            Get Started
+          </Link>
+        </Button>
       </section>
-      <div className="absolute bottom-0 w-full scale-x-110 overflow-hidden">
+      <div className="absolute bottom-0 w-full scale-x-110 overflow-hidden pointer-events-none">
         <LandingGraph />
       </div>
     </div>
