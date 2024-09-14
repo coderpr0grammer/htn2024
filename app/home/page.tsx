@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 export default function Home() {
   return (
-    <div className="overflow-hidden m-0 h-[100%]">
+    <div className="overflow-hidden m-0">
       <header className="flex flex-row m-4 gap-4">
         <Image src="/img/logo.svg" alt="logo" width={100} height={100} className="h-12 w-auto" />
         <Button className="ml-auto" variant={"ghost"}>Login</Button>
@@ -25,7 +25,7 @@ export default function Home() {
           </Link>
         </Button>
       </section>
-      <div className="absolute bottom-0 w-full scale-x-110 overflow-hidden pointer-events-none">
+      <div className="absolute bottom-0 w-full overflow-hidden pointer-events-none">
         <LandingGraph />
       </div>
     </div>
