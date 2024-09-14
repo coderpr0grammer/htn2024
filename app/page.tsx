@@ -1,3 +1,4 @@
+import React from 'react';
 import { LandingGraph } from "@/components/landing-graph";
 import { Button } from "@/components/ui/button";
 import { InfiniteMovingCards } from "@/components/infinite-moving-cards";
