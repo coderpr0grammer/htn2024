@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@ai-sdk/openai": "^0.0.60",
     "@auth0/nextjs-auth0": "^3.5.0",
     "@radix-ui/react-avatar": "^1.1.0",
     "@radix-ui/react-collapsible": "^1.1.0",
@@ -19,10 +20,12 @@
     "@radix-ui/react-progress": "^1.1.0",
     "@radix-ui/react-separator": "^1.1.0",
     "@radix-ui/react-slot": "^1.1.0",
+    "@radix-ui/react-switch": "^1.1.0",
     "@tabler/icons-react": "^3.16.0",
     "@types/recharts": "^1.8.29",
     "aceternity": "^1.0.1",
     "aceternity-ui": "^0.2.2",
+    "ai": "^3.3.37",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "framer-motion": "^11.5.4",
@@ -33,7 +36,8 @@
     "recharts": "^2.12.7",
     "tailwind-merge": "^2.5.2",
     "tailwindcss-animate": "^1.0.7",
-    "vaul": "^0.9.3"
+    "vaul": "^0.9.3",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@types/node": "^22.5.5",
