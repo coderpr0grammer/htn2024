@@ -1,78 +1,50 @@
 "use client"
 
-import { zodResolver } from "@hookform/resolvers/zod"
-import { useForm } from "react-hook-form"
-import { z } from "zod"
-import { useState } from "react"
-
-import { Button } from "@/components/ui/button"
-import {
-  Form,
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form"
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select"
-import { Input } from "@/components/ui/input"
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import { useState, useEffect } from "react";
+import { Button } from "@/components/ui/button";
+import { Form } from "@/components/ui/form";
+import Step1 from "./Steps/Step1";
+import Step2 from "./Steps/Step2";
+import Step3 from "./Steps/Step3";
+import Step4 from "./Steps/Step4";
+import { useRouter, useSearchParams } from "next/navigation";
 
 const formSchema = z.object({
-  firstName: z.string().min(1, {
-    message: "First name must be at least 1 character.",
-  }),
-  lastName: z.string().min(1, {
-    message: "Last name must be at least 1 character.",
-  }),
-  age: z.number().min(18, {
-    message: "You must be over 18 to use our application.",
-  }),
-  country: z.string().min(2, {
-    message: "Country must be selected.",
-  }),
+  firstName: z.string().min(1, "Please enter your first name."),
+  lastName: z.string().min(1, "Please enter your last name."),
+  age: z.number().min(18, "You must be over 18 to join NFA."),
+  country: z.string().min(2, "Please select your country."),
+  jobTitle: z.string().min(1, "Please enter your job title."),
+  jobIndustry: z.string().min(1, "Please enter your job industry."),
+  salary: z.number().min(0, "Please enter your salary."),
+  liquidCash: z.number().min(0, "Please enter your liquid cash."),
+  debt: z.number().min(0, "Enter your debt or $0 if you have none."),
+  investedAssets: z.number().min(0, "Please enter your invested assets."),
+  riskTolerance: z.string().min(1, "Please select your risk tolerance."),
+  investmentHorizon: z.string().min(1, "Please select your investment horizon."),
+  profitPercentageGoal: z.number().min(0, "Please enter your profit percentage goal."),
+});
 
-  jobTitle: z.string().min(1, {
-    message: "Job title must be at least 1 character.",
-  }),
-  jobIndustry: z.string().min(1, {
-    message: "Job industry must be at least 1 character.",
-  }),
-  salary: z.number().min(0, {
-    message: "Salary must be a positive number.",
-  }),
+type FormData = z.infer<typeof formSchema>;
 
-  liquidCash: z.number().min(0, {
-    message: "Liquid cash must be a positive number.",
-  }),
-  debt: z.number().min(0, {
-    message: "Debt must be a positive number.",
-  }),
-  investedAssets: z.number().min(0, {
-    message: "Invested assets must be a positive number.",
-  }),
+export type FormProps = {
+  form: ReturnType<typeof useForm<FormData>>;
+};
 
-  riskTolerance: z.string().min(1, {
-    message: "Risk tolerance must be low, medium, or high.",
-  }),
-  investmentHorizon: z.string().min(1, {
-    message: "Investment horizon must be short, medium, or long.",
-  }),
-  profitPercentageGoal: z.number().min(0, {
-    message: "Profit percentage goal must be a positive number.",
-  }),
-})
+const steps = [Step1, Step2, Step3, Step4];
 
 export default function OnboardingForm() {
-  const [currentSection, setCurrentSection] = useState(0)
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const initialSection = parseInt(searchParams.get("step") as string, 10) || 0;
 
-  const form = useForm<z.infer<typeof formSchema>>({
+  const [currentSection, setCurrentSection] = useState(initialSection);
+  const [direction, setDirection] = useState(0);
+
+  const form = useForm<FormData>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       firstName: "",
@@ -82,261 +54,113 @@ export default function OnboardingForm() {
       jobTitle: "",
       jobIndustry: "",
       salary: undefined,
+      liquidCash: undefined,
+      debt: undefined,
+      investedAssets: undefined,
+      riskTolerance: "",
+      investmentHorizon: "",
+      profitPercentageGoal: undefined,
     },
-  })
+  });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values)
-  }
-
-  async function handleNext() {
-    const sectionFields = [
-      ["firstName", "lastName", "age", "country"],
-      ["jobTitle", "jobIndustry", "salary"],
-      ["liquidCash", "debt", "investedAssets"],
-      ["riskTolerance", "investmentHorizon", "profitPercentageGoal"],
-    ]
-
-    const isValid = await form.trigger(sectionFields[currentSection])
-    if (isValid) {
-      setCurrentSection(currentSection + 1)
+  useEffect(() => {
+    // Load form data from localStorage if available
+    const savedData = localStorage.getItem('formData');
+    if (savedData) {
+        form.reset(JSON.parse(savedData));
     }
-  }
+  }, [form]);
+
+  useEffect(() => {
+    // Save form data to localStorage whenever it changes
+    const subscription = form.watch((data) => {
+      console.log('Saving form data to localStorage:', data);
+      localStorage.setItem('formData', JSON.stringify(data));
+      form.clearErrors();
+    });
+    return () => subscription.unsubscribe();
+  }, [form]);
+
+  useEffect(() => {
+    // Update URL with current step
+    router.push(`?step=${currentSection}`, undefined);
+  }, [currentSection, router]);
+
+  const onSubmit = (values: FormData) => {
+    console.log(values);
+    // Handle final submission
+  };
+
+  const sectionFields: (keyof FormData)[][] = [
+    ["firstName", "lastName", "age", "country"],
+    ["jobTitle", "jobIndustry", "salary"],
+    ["liquidCash", "debt", "investedAssets"],
+    ["riskTolerance", "investmentHorizon", "profitPercentageGoal"],
+  ];
+
+  const handleNavigation = async (newDirection: number) => {
+    const isMovingForward = newDirection > 0;
+    if (isMovingForward) {
+      const isValid = await form.trigger(sectionFields[currentSection]);
+      if (!isValid) return;
+    }
+    setDirection(newDirection);
+    setCurrentSection((prev) => prev + newDirection);
+  };
+
+  const currentFields = sectionFields[currentSection];
+
+  // Recalculate isNextDisabled
+  const isNextDisabled = currentFields.some((field) => {
+    const fieldValue = form.getValues(field);
+    return fieldValue === undefined || fieldValue === "" || form.formState.errors[field] !== undefined;
+  });
+
+  const CurrentStep = steps[currentSection];
 
   return (
-    <div className="flex flex-col gap-4 max-w-xl">
-      <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)}>
-          <section style={{ display: currentSection === 0 ? "block" : "none" }}>
-            <div className="flex flex-row gap-3">
-              <FormField
-                control={form.control}
-                name="firstName"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>First Name</FormLabel>
-                    <FormControl>
-                      <Input placeholder="John" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name="lastName"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Last Name</FormLabel>
-                    <FormControl>
-                      <Input placeholder="Doe" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-            </div>
-            <FormField
-              control={form.control}
-              name="age"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Age</FormLabel>
-                  <FormControl>
-                    <Input type="number" placeholder="30" {...field} value={field.value ?? ''} onChange={(e) => field.onChange(e.target.valueAsNumber)} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="country"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Country</FormLabel>
-                  <Select onValueChange={field.onChange} defaultValue={field.value}>
-                    <FormControl>
-                      <SelectTrigger>
-                        <SelectValue placeholder="Country" />
-                      </SelectTrigger>
-                    </FormControl>
-                    <SelectContent>
-                      <SelectItem value="CAN">🇨🇦 Canada</SelectItem>
-                      <SelectItem value="USA">🇺🇸 United States</SelectItem>
-                    </SelectContent>
-                  </Select>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-          </section>
-          <section style={{ display: currentSection === 1 ? "block" : "none" }}>
-            <div className="flex flex-col gap-3">
-              <FormField
-                control={form.control}
-                name="jobTitle"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Current Job Title</FormLabel>
-                    <FormControl>
-                      <Input placeholder="Software Developer" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name="jobIndustry"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Current Job Industry</FormLabel>
-                    <FormControl>
-                      <Input placeholder="Engineering" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name="salary"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Current Salary</FormLabel>
-                    <FormControl>
-                      <Input type="number" placeholder="100000" {...field} value={field.value ?? ''} onChange={(e) => field.onChange(e.target.valueAsNumber)} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-            </div>
-          </section>
-          <section style={{ display: currentSection === 2 ? "block" : "none" }}>
-            <div className="flex flex-col gap-3">
-              <FormField
-                control={form.control}
-                name="liquidCash"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Liquid Cash</FormLabel>
-                    <FormControl>
-                      <Input type="number" placeholder="10000" {...field} value={field.value ?? ''} onChange={(e) => field.onChange(e.target.valueAsNumber)} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name="debt"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Debt</FormLabel>
-                    <FormControl>
-                      <Input type="number" placeholder="5000" {...field} value={field.value ?? ''} onChange={(e) => field.onChange(e.target.valueAsNumber)} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name="investedAssets"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Invested Assets</FormLabel>
-                    <FormControl>
-                      <Input type="number" placeholder="10000" {...field} value={field.value ?? ''} onChange={(e) => field.onChange(e.target.valueAsNumber)} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-            </div>
-          </section>
-          <section style={{ display: currentSection === 3 ? "block" : "none" }}>
-            <div className="flex flex-col gap-3">
-              <FormField
-                control={form.control}
-                name="riskTolerance"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Risk Tolerance</FormLabel>
-                    <FormControl>
-                      <Select onValueChange={field.onChange} defaultValue={field.value}>
-                        <SelectTrigger>
-                          <SelectValue placeholder="Risk Tolerance" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="low">Low</SelectItem>
-                          <SelectItem value="medium">Medium</SelectItem>
-                          <SelectItem value="high">High</SelectItem>
-                        </SelectContent>
-                      </Select>
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name="investmentHorizon"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Investment Horizon</FormLabel>
-                    <FormControl>
-                      <Select onValueChange={field.onChange} defaultValue={field.value}>
-                        <SelectTrigger>
-                          <SelectValue placeholder="Investment Horizon" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="short">Short</SelectItem>
-                          <SelectItem value="medium">Medium</SelectItem>
-                          <SelectItem value="long">Long</SelectItem>
-                        </SelectContent>
-                      </Select>
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name="profitPercentageGoal"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Profit Percentage Goal</FormLabel>
-                    <FormControl>
-                      <Input type="number" placeholder="10" {...field} value={field.value ?? ''} onChange={(e) => field.onChange(e.target.valueAsNumber)} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-            </div>
-          </section>
-          <div className="flex justify-between">
-            {currentSection > 0 && (
-              <Button type="button" className="mr-auto" onClick={() => setCurrentSection(currentSection - 1)}>
-                Back
-              </Button>
-            )}
-            {currentSection < 3 && (
-              <Button type="button" className="ml-auto" onClick={handleNext}>
-                Next
-              </Button>
-            )}
-            {currentSection === 3 && (
-              <Button type="submit" className="ml-auto">
-                Submit
-              </Button>
-            )}
+    <div className="flex h-screen w-screen items-center justify-center">
+      <div className="lg:p-8 h-[100dvh] w-full px-8">
+        <div className="mx-auto flex h-full w-full flex-col justify-center space-y-6 px-4 sm:max-w-lg">
+          <div className="flex flex-col space-y-2 text-center">
+            <h1 className="text-2xl font-semibold tracking-tight">
+              Welcome to NFA.
+            </h1>
+            <p className="text-sm text-muted-foreground">
+              Let's get started with the basics.
+            </p>
           </div>
-        </form>
-      </Form>
+
+          <Form {...form}>
+            <form onSubmit={form.handleSubmit(onSubmit)} >
+
+              <CurrentStep form={form} />
+
+              <div className="flex justify-between mt-4 ">
+                {currentSection > 0 && (
+                  <Button type="button" onClick={() => handleNavigation(-1)}>
+                    Back
+                  </Button>
+                )}
+                {currentSection < steps.length - 1 ? (
+                  <Button
+                    type="button"
+                    className="ml-auto"
+                    onClick={() => handleNavigation(1)}
+                    disabled={isNextDisabled}
+                  >
+                    Next
+                  </Button>
+                ) : (
+                  <Button type="submit" className="ml-auto">
+                    Submit
+                  </Button>
+                )}
+              </div>
+            </form>
+          </Form>
+        </div>
+      </div>
     </div>
-  )
+  );
 }

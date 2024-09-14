@@ -23,7 +23,6 @@ type AuthProviderProps = {
 
 export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     const [user, setUser] = useState<User | null>(null);
-    const [customUserData, setCustomUserData] = useState<any | null>(null);
     const [loading, setLoading] = useState(true);
 
 
@@ -46,8 +45,8 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
             if (firebaseToken) {
                 // Sign in with the Firebase token
                 const firebaseUser = await signInWithCustomToken(auth, firebaseToken);
-                setUser(firebaseUser.user);
 
+               await mergeUserData();
                 // Create or fetch custom user data from Firestore using web modular sdk
                 const userRef = doc(db, 'users', firebaseUser.user?.uid);
                 const docSnap = await getDoc(userRef);
@@ -64,7 +63,6 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 
                 // Fetch custom user data
                 const userDoc = await getDoc(userRef);
-                setCustomUserData(userDoc.data());
             }
 
             setLoading(false);
@@ -77,11 +75,25 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     const logout = async () => {
         await signOut(auth);
         setUser(null);
-        setCustomUserData(null);
     };
 
+    const mergeUserData = async () => {
+        if (!auth.currentUser) return;
+      
+        const userRef = doc(db, 'users', auth.currentUser.uid);
+        const userDoc = await getDoc(userRef);
+      
+        const docData = userDoc.data() || {};
+      
+        // Ensure you're passing the correct User object structure
+        setUser({
+          ...auth.currentUser, // keep the existing user structure
+          data: docData, // add the new data from Firestore
+        } );
+      };
+
     return (
-        <AuthContext.Provider value={{ user, customUserData, loading, logout }}>
+        <AuthContext.Provider value={{ user, loading, logout }}>
             {loading ? <div>Loading...</div> : children}
         </AuthContext.Provider>
     );

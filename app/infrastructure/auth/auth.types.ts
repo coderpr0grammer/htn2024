@@ -2,7 +2,6 @@ import { User as FirebaseUser } from "firebase/auth";
 
 export interface AuthContextProps {
     user: User | null;
-    customUserData: any | null;
     loading: boolean;
     logout: () => Promise<void>;
 }
