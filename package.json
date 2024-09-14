@@ -10,7 +10,9 @@
   },
   "dependencies": {
     "@auth0/nextjs-auth0": "^3.5.0",
+    "@radix-ui/react-label": "^2.1.0",
     "@radix-ui/react-slot": "^1.1.0",
+    "@tabler/icons-react": "^3.16.0",
     "@types/recharts": "^1.8.29",
     "aceternity": "^1.0.1",
     "aceternity-ui": "^0.2.2",
