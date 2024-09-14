@@ -33,7 +33,7 @@ const chartConfig = {
 
 export function LandingGraph() {
   return (
-    <ChartContainer config={chartConfig} className="max-h-[450px] w-full">
+    <ChartContainer config={chartConfig} className="max-h-[500px] w-full">
       <AreaChart
         data={chartData}
       >
