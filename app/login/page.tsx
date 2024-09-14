@@ -17,7 +17,7 @@ export default function SignPage() {
   );
 }
 
-export function SignupFormDemo() {
+function SignupFormDemo() {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log("Form submitted");
