@@ -1,8 +1,27 @@
 import { LandingGraph } from "@/components/landing-graph";
 import { Button } from "@/components/ui/button";
+import { InfiniteMovingCards } from "@/components/infinite-moving-cards";
 import Image from "next/image";
 
 export default function Home() {
+  const testimonials = [
+    {
+      quote: "NFA helped me understand my finances better than ever before.",
+      name: "Alex Johnson",
+      title: "Small Business Owner"
+    },
+    {
+      quote: "The personalized insights are game-changing for my financial planning.",
+      name: "Sarah Lee",
+      title: "Freelance Designer"
+    },
+    {
+      quote: "I feel more confident about my financial future thanks to NFA.",
+      name: "Michael Chen",
+      title: "Software Engineer"
+    },
+  ];
+
   return (
     <div className="overflow-hidden m-0 h-[100%]">
       <header className="flex flex-row m-4 gap-4">
@@ -18,6 +37,13 @@ export default function Home() {
           Create a strong financial future with personalized insights, tools, and resources. No financial expertise required.
         </span>
         <Button size="lg">Get Started</Button>
+        <div className="w-full max-w-4xl mt-8">
+          <InfiniteMovingCards
+            items={testimonials}
+            direction="right"
+            speed="slow"
+          />
+        </div>
       </section>
       <div className="absolute bottom-0 w-full scale-x-110 overflow-hidden">
         <LandingGraph />
