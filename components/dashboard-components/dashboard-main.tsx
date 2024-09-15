@@ -34,12 +34,35 @@ import {
 } from "@/components/ui/chart"
 import { Separator } from "@/components/ui/separator"
 
-export const description = "A collection of health charts."
+export function GreetingWidget() {
+
+  const greeting = new Date().getHours() < 12 ? "Good Morning" : new Date().getHours() < 18 ? "Good Afternoon" : "Good Evening"
+
+  return (
+    <Card
+      className="lg:max-w-md"
+    >
+      <CardHeader className="space-y-0">
+        <CardTitle className="text-2xl">
+          {greeting}, Firstname!
+        </CardTitle>
+        <CardDescription>
+          {new Date().toLocaleDateString("en-US", {
+            weekday: "long",
+            month: "long",
+            day: "numeric",
+          })}
+        </CardDescription>
+      </CardHeader>
+    </Card>
+  )
+}
 
 export function DashboardMain() {
   return (
     <div className="chart-wrapper mx-auto flex max-w-6xl flex-col flex-wrap items-start justify-center gap-6 py-6 sm:flex-row sm:py-8">
       <div className="grid w-full gap-6 sm:grid-cols-2 lg:max-w-[22rem] lg:grid-cols-1 xl:max-w-[25rem]">
+        <GreetingWidget />
         <Card
           className="lg:max-w-md" x-chunk="charts-01-chunk-0"
         >

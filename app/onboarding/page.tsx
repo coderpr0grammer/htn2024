@@ -1,7 +1,7 @@
 "use client"
 
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
+import { useFieldArray, useForm } from "react-hook-form";
 import { z } from "zod";
 import { useState, useEffect, Suspense } from "react";
 import { Button } from "@/components/ui/button";
@@ -11,11 +11,20 @@ import Step2 from "./Steps/Step2";
 import Step3 from "./Steps/Step3";
 import Step4 from "./Steps/Step4";
 import { useRouter, useSearchParams } from "next/navigation";
+import Step5 from "./Steps/Step5";
 
 const assetSchema = z.object({
   name: z.string().min(1, "Please enter the asset name."),
   type: z.string().min(1, "Please enter the asset type."),
   amount: z.number().min(0, "Please enter the asset amount."),
+});
+
+const interestsSchema = z.object({
+  name: z.string().min(1, "Please enter the interest."),
+});
+
+const goalsSchema = z.object({
+  name: z.string().min(1, "Please enter the goal."),
 });
 
 const formSchema = z.object({
@@ -32,6 +41,10 @@ const formSchema = z.object({
   riskTolerance: z.string().min(1, "Please select your risk tolerance."),
   investmentHorizon: z.string().min(1, "Please select your investment horizon."),
   profitPercentageGoal: z.number().min(0, "Please enter your profit percentage goal."),
+  monthsOfEmergencySavings: z.number().min(1, "Please enter the number of months of emergency savings."),
+  monthlyExpenses: z.number().min(1, "Please enter your monthly expenses."),
+  interests: z.array(interestsSchema).nonempty("Please select at least one interest."),
+  goals: z.array(goalsSchema).nonempty("Please select at least one goal."),
 });
 
 type FormData = z.infer<typeof formSchema>;
@@ -40,7 +53,7 @@ export type FormProps = {
   form: ReturnType<typeof useForm<FormData>>;
 };
 
-const steps = [Step1, Step2, Step3, Step4];
+const steps = [Step1, Step2, Step3, Step4, Step5];
 
 function SearchParamsComponent({ setCurrentSection }: { setCurrentSection: (section: number) => void }) {
   const searchParams = useSearchParams();
@@ -69,10 +82,12 @@ export default function OnboardingForm() {
       salary: undefined,
       liquidCash: undefined,
       debt: undefined,
-      investedAssets: undefined,
+      investedAssets: [],
       riskTolerance: "",
       investmentHorizon: "",
       profitPercentageGoal: undefined,
+      monthsOfEmergencySavings: undefined,
+      monthlyExpenses: undefined,
     },
   });
 
@@ -108,7 +123,8 @@ export default function OnboardingForm() {
     ["firstName", "lastName", "age", "country"],
     ["jobTitle", "jobIndustry", "salary"],
     ["liquidCash", "debt", "investedAssets"],
-    ["riskTolerance", "investmentHorizon", "profitPercentageGoal"],
+    ["riskTolerance", "investmentHorizon", "profitPercentageGoal", "monthsOfEmergencySavings", "monthlyExpenses"],
+    ["interests", "goals"],
   ];
 
   const handleNavigation = async (newDirection: number) => {
@@ -131,16 +147,32 @@ export default function OnboardingForm() {
 
   const CurrentStep = steps[currentSection];
 
+  const titles = [
+    "Welcome to NFA!",
+    `Hey ${form.getValues("firstName")}!`,
+    "Financial Snapshot",
+    "Investment Preferences",
+    "Interests & Goals",
+  ]
+
+  const subTitles = [
+    "Let's get started with the basics.",
+    "Let's get to know you better.",
+    "Let's talk about your finances.",
+    "Let's talk about your current financial situation.",
+    "Let's talk about your interests and goals.",
+  ]
+
   return (
     <div className="flex h-screen w-screen items-center justify-center">
       <div className="lg:p-8 h-[100dvh] w-full px-8">
         <div className="mx-auto flex h-full w-full flex-col justify-center space-y-6 px-4 sm:max-w-lg">
           <div className="flex flex-col space-y-2 text-center">
             <h1 className="text-2xl font-semibold tracking-tight">
-              Welcome to NFA.
+              {titles[currentSection]}
             </h1>
             <p className="text-sm text-muted-foreground">
-              {"Let's get started with the basics."}
+              {subTitles[currentSection]}
             </p>
           </div>
 

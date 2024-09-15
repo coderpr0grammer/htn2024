@@ -10,23 +10,27 @@ const Step4: React.FC<StepProps> = ({ form }) => {
 
     return (
         <section className="space-y-2">
-
             <div className="flex flex-col gap-3">
-
-
                 <FormField
                     control={form.control}
                     name="riskTolerance"
                     render={({ field }) => (
                         <FormItem>
                             <FormLabel>Risk Tolerance</FormLabel>
+                            <div className="justify-between flex flex-row">
+                                <FormLabel>Low Risk</FormLabel>
+                                <FormLabel>High Risk</FormLabel>
+                            </div>
                             <FormControl>
                                 <Slider
-                                defaultValue={[50]}
-                                    max={100}
+                                    defaultValue={[1.5]}
+                                    max={3}
                                     color="red"
-                                    step={1}
+                                    step={0.05}
                                     aria-setsize={20}
+                                    onChange={(e) => {
+                                        field.onChange(e)
+                                    }}
                                 />
                             </FormControl>
                             <FormMessage />
@@ -68,6 +72,34 @@ const Step4: React.FC<StepProps> = ({ form }) => {
                         </FormItem>
                     )}
                 />
+                <div className="gap-3 flex flex-row">
+                    <FormField
+                        control={form.control}
+                        name="monthsOfEmergencySavings"
+                        render={({ field }) => (
+                            <FormItem>
+                                <FormLabel>Perferred Months of Savings</FormLabel>
+                                <FormControl>
+                                    <Input type="number" placeholder="10" {...field} value={field.value ?? ''} onChange={(e) => field.onChange(e.target.valueAsNumber)} />
+                                </FormControl>
+                                <FormMessage />
+                            </FormItem>
+                        )}
+                    />
+                    <FormField
+                        control={form.control}
+                        name="monthlyExpenses"
+                        render={({ field }) => (
+                            <FormItem>
+                                <FormLabel>Monthly Expenses Amount</FormLabel>
+                                <FormControl>
+                                    <Input type="number" placeholder="10" {...field} value={field.value ?? ''} onChange={(e) => field.onChange(e.target.valueAsNumber)} />
+                                </FormControl>
+                                <FormMessage />
+                            </FormItem>
+                        )}
+                    />
+                </div>
             </div>
         </section>
     )

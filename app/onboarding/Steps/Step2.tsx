@@ -4,10 +4,9 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { StepProps } from "@/types/types"
 import { UseFormReturn, useForm } from "react-hook-form"
 
-  const Step2: React.FC<StepProps> = ({ form }) => {
+const Step2: React.FC<StepProps> = ({ form }) => {
     return (
         <section className="space-y-2">
-
             <div className="flex flex-col gap-3">
                 <FormField
                     control={form.control}
