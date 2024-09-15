@@ -8,7 +8,8 @@ export default function NewsWidget() {
   useEffect(() => {
     async function fetchNews() {
       try {
-        const response = await fetch('/api/stock-news');
+        // Update the API endpoint
+        const response = await fetch('/api/news');
         if (!response.ok) throw new Error('Failed to fetch news');
         const data = await response.json();
         setNews(data);
