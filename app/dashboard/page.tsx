@@ -6,8 +6,6 @@ import {
 } from "@/components/ui/avatar"
 
 import { DashboardMain } from "../../components/dashboard-components/dashboard-main"
-import { SidebarLayout } from '@/components/ui/sidebar';
-import { cookies } from 'next/headers';
 
 export default function Dashboard() {
   return (
