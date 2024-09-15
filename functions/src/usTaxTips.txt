@@ -1,0 +1,517 @@
+1. Standard Deduction vs. Itemizing:
+- For 2024, the standard deduction is $14,600 for single filers and $29,200 for married filing jointly.
+- Itemize only if your total itemized deductions exceed the standard deduction.
+- Common itemized deductions include mortgage interest, state and local taxes (capped at $10,000), and charitable contributions.
+
+2. Retirement Account Contributions:
+- 401(k) contribution limit for 2024: $23,000 ($30,500 if age 50+)
+- Traditional and Roth IRA contribution limit: $7,000 ($8,000 if age 50+)
+- Contributions to traditional IRAs may be tax-deductible, subject to income limits if you have a workplace retirement plan.
+
+3. Health Savings Account (HSA):
+- 2024 contribution limits: $4,150 for individuals, $8,300 for families
+- Must have a high-deductible health plan (HDHP) to be eligible
+- Minimum HDHP deductible: $1,600 for individuals, $3,200 for families
+
+4. Child Tax Credit:
+- Up to $2,000 per qualifying child under 17
+- Credit begins to phase out at $200,000 AGI for single filers, $400,000 for married filing jointly
+- Partially refundable up to $1,600 per child
+
+5. Education Credits:
+- American Opportunity Credit: Up to $2,500 per eligible student for first 4 years of higher education
+- Lifetime Learning Credit: Up to $2,000 per tax return for qualified education expenses
+- Income limits apply to both credits
+
+6. Capital Gains:
+- Long-term capital gains (assets held > 1 year) are taxed at 0%, 15%, or 20% depending on income
+- Short-term gains are taxed as ordinary income
+- Net Investment Income Tax of 3.8% may apply if AGI exceeds $200,000 (single) or $250,000 (married filing jointly)
+
+7. Home Office Deduction:
+- Must use part of your home exclusively and regularly for your business
+- Can deduct based on actual expenses or simplified method ($5 per square foot, up to 300 sq ft)
+- Not available for employees working from home (only self-employed individuals)
+
+8. Required Minimum Distributions (RMDs):
+- Must begin taking RMDs from traditional IRAs and 401(k)s at age 73
+- First RMD can be delayed until April 1 of the year following the year you turn 73
+- Roth IRAs are not subject to RMDs during the owner's lifetime
+
+9. Charitable Donations:
+- Must have written acknowledgment for any single donation of $250 or more
+- For non-cash donations over $500, must file Form 8283
+- Donations over $5,000 generally require a qualified appraisal
+
+10. Estimated Tax Payments:
+- Required if you expect to owe $1,000 or more when you file your return
+- Due dates: April 15, June 15, September 15, and January 15 of the following year
+- Penalties may apply if you don't pay enough throughout the year
+
+11. Social Security Benefits Taxation:
+- Up to 85% of benefits may be taxable, depending on your "combined income"
+- Combined income = AGI + Nontaxable interest + 1/2 of Social Security benefits
+- No tax if combined income is under $25,000 (single) or $32,000 (married filing jointly)
+
+12. Alternative Minimum Tax (AMT):
+- Parallel tax system designed to ensure high-income taxpayers pay a minimum amount of tax
+- 2024 exemption amounts: $84,300 for singles, $131,100 for married filing jointly
+- Exemption phases out at $609,350 for singles, $1,218,700 for married filing jointly
+
+13. Qualified Business Income Deduction (Section 199A):
+- Allows eligible self-employed and small business owners to deduct up to 20% of their qualified business income
+- Subject to income limits and phase-outs for specified service businesses
+- Complex rules apply; consult a tax professional for your specific situation
+
+14. Net Operating Loss (NOL) Carryforwards:
+- Business losses can be carried forward indefinitely
+- Limited to 80% of taxable income in any given year
+- No carrybacks allowed (except for farming losses, which can be carried back 2 years)
+
+15. Foreign Earned Income Exclusion:
+- U.S. citizens working abroad can exclude up to $120,000 (2024) of foreign earnings from U.S. tax
+- Must meet either the bona fide residence test or the physical presence test
+- Housing expenses may also be deductible or excludable above this amount
+
+16. Mortgage Insurance Premium Deduction:
+- Deductible as itemized deduction for qualified taxpayers
+- Phases out for AGI between $100,000 and $109,000
+- Only applies to homes acquired after 2006
+
+17. Electric Vehicle Tax Credit:
+- Up to $7,500 for new qualified plug-in electric vehicles
+- Subject to manufacturer sales caps and vehicle price limits
+- Must meet North American assembly requirements
+
+18. Adoption Credit:
+- Up to $15,950 per child for qualified adoption expenses (2024)
+- Credit phases out for AGI between $239,230 and $279,230
+- Can be carried forward for up to 5 years if unused
+
+19. Earned Income Tax Credit (EITC):
+- Refundable credit for low to moderate-income workers
+- Maximum credit for 2024: $7,430 with three or more qualifying children
+- Income limits and credit amounts vary based on filing status and number of children
+
+20. Saver's Credit:
+- Non-refundable credit for contributions to IRAs and employer-sponsored retirement plans
+- Credit rate of 50%, 20%, or 10% of contributions up to $2,000 ($4,000 if married filing jointly)
+- Credit rate depends on AGI; not available if AGI exceeds $36,500 (single) or $73,000 (married filing jointly)
+
+21. Medical Expense Deduction:
+- Can deduct unreimbursed medical expenses that exceed 7.5% of your AGI
+- Includes expenses for diagnosis, cure, mitigation, treatment, or prevention of disease
+- Eligible expenses may include mileage for medical visits, long-term care insurance premiums, and certain home modifications for medical reasons
+
+22. Qualified Charitable Distribution (QCD):
+- Individuals aged 70½ or older can transfer up to $100,000 annually from IRAs directly to qualified charities
+- Counts toward Required Minimum Distributions (RMDs)
+- Excluded from taxable income, which may lower overall tax liability
+
+23. Kiddie Tax:
+- Applies to unearned income of children under 19 (or full-time students under 24)
+- First $1,250 of unearned income is tax-free, next $1,250 taxed at child's rate
+- Unearned income above $2,500 taxed at parents' marginal rate
+
+24. Home Sale Exclusion:
+- Can exclude up to $250,000 ($500,000 for married filing jointly) of capital gains on the sale of a primary residence
+- Must have owned and used the home as primary residence for at least 2 of the last 5 years
+- Can be used once every two years
+
+25. Alimony Tax Treatment:
+- For divorces finalized after 2018, alimony is not deductible for the payer and not taxable for the recipient
+- Pre-2019 divorces follow old rules unless modified to explicitly follow new rules
+
+26. Residential Energy Credits:
+- Credit for energy-efficient home improvements (windows, doors, insulation, etc.)
+- 30% of costs up to $1,200 annual limit, with $2,000 limit for heat pumps and biomass stoves
+- Separate 30% credit for solar panels, wind turbines, and geothermal heat pumps with no dollar limit
+
+27. Educator Expense Deduction:
+- K-12 teachers can deduct up to $300 of unreimbursed classroom expenses
+- Above-the-line deduction; no need to itemize
+- Eligible expenses include books, supplies, computer equipment, and supplementary materials
+
+28. Gambling Losses Deduction:
+- Can deduct gambling losses up to the amount of gambling winnings
+- Must itemize deductions and keep accurate records
+- Winnings must be reported as income
+
+29. Student Loan Interest Deduction:
+- Can deduct up to $2,500 of student loan interest paid
+- Above-the-line deduction; no need to itemize
+- Phases out for AGI between $75,000 and $90,000 (single) or $155,000 and $185,000 (married filing jointly)
+
+30. Foreign Tax Credit:
+- Credit for foreign taxes paid on foreign-source income
+- Can choose to take as a deduction instead, but credit is generally more beneficial
+- Complex rules apply; may be limited based on foreign income categories
+
+31. Casualty and Theft Losses:
+- Deductible only if attributable to a federally declared disaster
+- Must exceed $100 per incident and total losses must exceed 10% of AGI
+- Fair market value before and after the casualty must be determined
+
+32. State and Local Tax (SALT) Deduction:
+   - Limited to $10,000 for state and local income, sales, and property taxes combined
+   - Applies to itemized deductions
+
+33. Moving Expenses for Military:
+   - Active-duty military can deduct unreimbursed moving expenses for a permanent change of station
+   - Includes transportation, storage, and travel costs
+
+34. Health Coverage Tax Credit:
+   - Covers 72.5% of qualified health insurance premiums for eligible individuals
+   - Available for certain trade-displaced workers and Pension Benefit Guaranty Corporation payees
+
+35. Achieving a Better Life Experience (ABLE) Accounts:
+   - Tax-advantaged savings accounts for individuals with disabilities
+   - Contributions up to annual gift tax exclusion amount ($17,000 for 2024)
+   - Earnings grow tax-free if used for qualified disability expenses
+
+36. Foreign Bank Account Reporting (FBAR):
+   - Must file FinCEN Form 114 if foreign financial accounts exceed $10,000 at any time during the year
+   - Separate from tax return; due April 15 with automatic extension to October 15
+
+37. Opportunity Zone Investments:
+   - Defer and potentially reduce capital gains tax by investing in Qualified Opportunity Funds
+   - Can exclude gains on appreciation if held for at least 10 years
+
+38. Section 1031 Like-Kind Exchanges:
+   - Defer capital gains taxes by exchanging certain types of property
+   - Limited to real property used for business or investment purposes
+
+39. Home Office Safe Harbor:
+   - Simplified method allows $5 per square foot of home office space, up to 300 square feet
+   - Alternative to calculating actual expenses
+
+40. Qualified Small Business Stock (QSBS):
+   - Potential to exclude up to 100% of capital gains from federal tax
+   - Must meet specific requirements and be held for at least 5 years
+
+41. Backdoor Roth IRA:
+   - Strategy for high-income earners to contribute to a Roth IRA
+   - Involves making non-deductible contributions to a traditional IRA, then converting to Roth
+
+42. Net Unrealized Appreciation (NUA):
+   - Special tax treatment for employer stock in a 401(k) when taking a lump-sum distribution
+   - Can result in lower long-term capital gains rates on appreciation
+
+43. Qualified Longevity Annuity Contract (QLAC):
+   - Defer RMDs on up to $145,000 or 25% of retirement account balance (whichever is less)
+   - Payments must begin by age 85
+
+44. Wash Sale Rule:
+   - Cannot claim a loss on a security if you buy a "substantially identical" security within 30 days before or after the sale
+   - Applies across all accounts, including IRAs
+
+45. Qualified Disaster Distributions:
+   - Special rules for retirement account distributions due to federally declared disasters
+   - May avoid 10% early withdrawal penalty and spread income over three years
+
+46. Qualified Tuition Programs (529 Plans):
+   - Tax-free growth for qualified education expenses
+   - Up to $10,000 annually can be used for K-12 tuition
+   - Unused funds can be rolled over to ABLE accounts
+
+47. Gift Tax Annual Exclusion:
+   - Give up to $17,000 per recipient in 2024 without filing a gift tax return
+   - Unlimited gifts to spouses (if US citizen) and for qualified medical or educational expenses paid directly to providers
+
+48. Dependent Care Flexible Spending Account (FSA):
+   - Contribute up to $5,000 pre-tax for qualified child care expenses
+   - Both spouses can contribute, but total family limit is $5,000
+
+49. Form 8332 for Divorced Parents:
+   - Allows non-custodial parent to claim child as dependent
+   - Must be signed by custodial parent annually or for specified years
+
+50. Clergy Housing Allowance:
+   - Ministers can exclude housing allowance from income for federal income tax purposes
+   - Still subject to self-employment tax
+
+51. Deceased Taxpayer Final Return:
+   - Final return due by April 15 of the year following death
+   - Surviving spouse can file jointly for the year of death
+
+52. Combat Zone Tax Benefits:
+   - Military pay received in a combat zone is generally tax-free
+   - Extra time to file returns and pay taxes
+
+53. Cancellation of Debt Income:
+   - Generally taxable, but exceptions exist for certain situations (e.g., bankruptcy, insolvency)
+   - Form 1099-C reports canceled debt of $600 or more
+
+54. Self-Employed Health Insurance Deduction:
+   - Can deduct 100% of health insurance premiums for self, spouse, and dependents
+   - Above-the-line deduction; reduces AGI
+
+55. Business Bad Debt Deduction:
+   - Fully deductible in the year it becomes worthless for businesses
+   - Must have previously been included in income
+
+56. Passive Activity Losses:
+   - Generally can only offset passive income
+   - Special $25,000 allowance for active participation in rental real estate activities
+
+57. Installment Sales:
+   - Spread gain over multiple years as payments are received
+   - May result in lower overall tax liability
+
+58. Nanny Tax:
+   - Must pay employment taxes if you pay a household employee $2,400 or more in 2024
+   - Includes Social Security, Medicare, and unemployment taxes
+
+59. Hobby Loss Rules:
+   - Expenses only deductible to the extent of income from the activity
+   - Activity presumed for profit if profitable in 3 of last 5 years
+
+60. Form 8606 for Non-Deductible IRA Contributions:
+   - Required to track basis in traditional IRAs
+   - Important for calculating taxes on future distributions or conversions
+
+61. Qualified Dividends:
+   - Taxed at preferential long-term capital gains rates
+   - Must meet holding period requirements
+
+62. Bonus Depreciation:
+   - 80% first-year bonus depreciation for qualified property acquired and placed in service in 2024
+   - Phases out completely after 2026
+
+63. Section 179 Expensing:
+   - Deduct up to $1,160,000 of qualifying property for 2024
+   - Phases out dollar-for-dollar when asset purchases exceed $2,890,000
+
+64. Cost Segregation Studies:
+   - Accelerate depreciation deductions for commercial real estate
+   - Identify components that can be depreciated over shorter lives
+
+65. Research and Development Credit:
+   - Tax credit for increasing research activities
+   - Can offset payroll taxes for certain small businesses
+
+66. Work Opportunity Tax Credit:
+   - Credit for hiring individuals from certain target groups
+   - Up to $9,600 per employee, depending on the group
+
+67. Tip Reporting:
+   - Employees must report tips of $20 or more in a month to their employer
+   - Employers must withhold taxes on reported tips
+
+68. Amortization of Business Start-Up Costs:
+   - Can deduct up to $5,000 in the first year
+   - Remainder amortized over 15 years
+
+69. Penalty Abatement:
+   - IRS may waive penalties for reasonable cause
+   - First-time penalty abatement available for certain taxpayers
+
+70. Split-Interest Trusts:
+   - Charitable remainder trusts and charitable lead trusts can provide tax benefits
+   - Complex rules; professional advice recommended
+
+71. Conservation Easements:
+   - Deduction for qualified conservation contributions
+   - Must meet specific requirements; subject to IRS scrutiny
+
+72. Qualified Bicycle Commuting Reimbursement:
+   - Employers can provide up to $20 per month tax-free for bicycle commuting expenses
+   - Employee cannot claim commuter tax benefits in the same month
+
+73. Employer-Provided Educational Assistance:
+   - Up to $5,250 per year tax-free for qualified educational expenses
+   - Can include undergraduate and graduate courses
+
+74. Domestic Production Activities Deduction for Puerto Rico:
+   - Special deduction for certain income from Puerto Rico
+   - Complex rules; consult a tax professional
+
+75. Empowerment Zone Employment Credit:
+   - Credit for hiring individuals who live and work in an empowerment zone
+   - Must be designated empowerment zone
+
+76. New Markets Tax Credit:
+   - Incentive for investment in low-income communities
+   - Credit claimed over seven years
+
+77. Historic Rehabilitation Tax Credit:
+   - 20% credit for qualified rehabilitation expenditures on certified historic structures
+   - 10% credit for non-historic buildings placed in service before 1936
+
+78. Energy-Efficient Commercial Buildings Deduction:
+   - Up to $1.88 per square foot for energy-efficient improvements
+   - Must meet specific energy-saving targets
+
+79. Qualified Retirement Plan Startup Costs Credit:
+   - Credit for small employers starting a retirement plan
+   - Up to $5,000 per year for first three years
+
+80. Qualified Improvements Depreciation:
+   - 15-year depreciation period for qualified improvement property
+   - Eligible for bonus depreciation
+
+81. Excess Business Loss Limitation:
+   - Limits business losses that can offset non-business income
+   - Excess carried forward as net operating loss
+
+82. Qualified Opportunity Zones:
+   - Tax incentives for investing in designated economically distressed communities
+   - Potential deferral and partial exclusion of capital gains
+
+83. Form 8938 - Statement of Specified Foreign Financial Assets:
+   - Required if foreign financial assets exceed certain thresholds
+   - Separate from and in addition to FBAR requirements
+
+84. International Information Reporting Penalties:
+   - Significant penalties for failure to file international information returns
+   - Includes Forms 5471, 8865, 8858, and others
+
+85. Foreign Derived Intangible Income (FDII) Deduction:
+   - Deduction for income from foreign sales and services
+   - Complex calculations; professional assistance recommended
+
+86. Global Intangible Low-Taxed Income (GILTI):
+   - Tax on certain income of controlled foreign corporations
+   - 50% deduction available for C corporations
+
+87. Base Erosion and Anti-Abuse Tax (BEAT):
+   - Minimum tax on certain large corporations
+   - Applies to corporations with average annual gross receipts of $500 million or more
+
+88. Section 962 Election:
+   - Allows individuals to be taxed as corporations on certain foreign income
+   - Can result in lower overall tax on foreign earnings
+
+89. Qualified Small Business Payroll Tax Credit for Increasing Research Activities:
+   - Allows eligible small businesses to offset payroll taxes with R&D credit
+   - Up to $250,000 per year
+
+90. Archer Medical Savings Accounts (MSAs):
+   - Tax-advantaged accounts for self-employed individuals and small businesses
+   - Must be coupled with high-deductible health plan
+
+91. Indian Employment Credit:
+   - Credit for employers of enrolled members of Indian tribes or their spouses
+   - Based on wages and health insurance costs
+
+92. Credit for Employer-Provided Childcare Facilities:
+   - 25% of qualified childcare facility expenditures plus 10% of resource and referral expenditures
+   - Maximum credit of $150,000 per year
+
+93. Low-Income Housing Credit:
+   - Incentive for investment in affordable rental housing
+   - Credit claimed over 10 years
+
+94. Renewable Electricity Production Credit:
+   - Credit for production of electricity from qualified energy resources
+   - Rate varies by type of facility
+
+95. Marginal Well Production Credit:
+   - Credit for production from marginal oil and gas wells
+   - Amount varies based on oil and gas prices
+
+96. Enhanced Oil Recovery Credit:
+   - 15% of qualified enhanced oil recovery costs
+   - Phased out when oil prices exceed certain threshold
+
+97. Carbon Oxide Sequestration Credit:
+   - Credit for carbon capture and sequestration
+   - Amount varies based on how the carbon oxide is utilized
+
+98. Alternative Fuel Vehicle Refueling Property Credit:
+   - Credit for installation of alternative fuel vehicle refueling property
+   - Up to 30% of cost, maximum $30,000 for business property
+
+99. Mine Rescue Team Training Credit:
+   - Credit for training mine rescue team members
+   - 20% of training program costs, up to $10,000 per employee
+
+100. Railroad Track Maintenance Credit:
+    - Credit for qualified railroad track maintenance expenditures
+    - 50% of qualified expenditures, subject to limitations
+
+101. Disabled Access Credit:
+    - Credit for small businesses that incur expenses to provide access to disabled individuals
+    - 50% of eligible access expenditures that exceed $250 but do not exceed $10,250
+
+102. Credit for Employer Social Security and Medicare Taxes Paid on Certain Employee Tips:
+    - Credit for food and beverage establishments
+    - Based on tips received in excess of minimum wage
+    
+103. Retirement Savings Contributions Credit (Saver's Credit):
+    - For low to moderate income taxpayers who contribute to retirement accounts
+    - Credit rate of 50%, 20%, or 10% of contributions up to $2,000 ($4,000 if married filing jointly)
+    - Credit rate depends on AGI; phases out completely at $36,500 (single) or $73,000 (married filing jointly) for 2024
+
+104. Adoption Credit:
+    - Up to $15,950 per child for qualified adoption expenses (2024)
+    - Credit phases out for AGI between $239,230 and $279,230
+    - Can be carried forward for up to 5 years if unused
+
+105. Premium Tax Credit:
+    - Helps eligible individuals and families cover the premiums for their health insurance purchased through the Marketplace
+    - Amount of credit varies based on household income and family size
+
+106. Credit for the Elderly or Disabled:
+    - For taxpayers 65 or older, or under 65 and retired on permanent and total disability
+    - Credit amount depends on filing status, age, and income
+    - Maximum credit ranges from $3,750 to $7,500
+
+107. Residential Energy Efficient Property Credit:
+    - 30% of the cost of solar electric property, solar water heaters, geothermal heat pumps, small wind turbines, and fuel cell property
+    - No dollar limit on the credit for most technologies (except fuel cells)
+
+108. Nonbusiness Energy Property Credit:
+    - Credit for certain energy-efficient improvements to your main home
+    - 30% of costs up to $1,200 annual limit, with $2,000 limit for heat pumps and biomass stoves
+
+109. Alternative Motor Vehicle Credit:
+    - Credit for purchase of new qualified fuel cell vehicles
+    - Amount varies based on vehicle's fuel economy
+
+110. Plug-in Electric Drive Vehicle Credit:
+    - Up to $7,500 for purchase of new qualified plug-in electric drive vehicles
+    - Subject to manufacturer sales caps and vehicle price limits
+    - Must meet North American assembly requirements
+
+111. Two-Wheeled Plug-in Electric Vehicle Credit:
+    - 10% of cost up to $2,500 for qualified two-wheeled plug-in electric vehicles
+    - Vehicle must have a battery capacity of at least 2.5 kilowatt hours
+
+112. Credit for Prior Year Minimum Tax:
+    - For individuals who paid Alternative Minimum Tax in previous years
+    - Helps recover some or all of the AMT previously paid
+
+113. Credit for Excess Social Security Tax Withheld:
+    - For taxpayers with multiple employers who had more than the maximum Social Security tax withheld
+    - Maximum credit is the excess over the maximum required withholding
+
+114. Health Coverage Tax Credit:
+    - Covers 72.5% of qualified health insurance premiums for eligible individuals
+    - Available for certain trade-displaced workers and Pension Benefit Guaranty Corporation payees
+
+115. Foreign Tax Credit:
+    - Credit for foreign taxes paid on foreign-source income
+    - Can choose to take as a deduction instead, but credit is generally more beneficial
+    - Complex rules apply; may be limited based on foreign income categories
+
+116. General Business Credit:
+    - Combination of several business-related credits
+    - Includes credits like the Investment Credit, Work Opportunity Credit, and Research Credit
+    - Subject to overall limitations based on tax liability
+
+117. New Markets Tax Credit:
+    - Incentive for investment in low-income communities
+    - Credit claimed over seven years, equal to 39% of the investment
+
+118. Rehabilitation Tax Credit:
+    - 20% credit for qualified rehabilitation expenditures on certified historic structures
+    - 10% credit for non-historic buildings placed in service before 1936
+
+119. Energy-Efficient Home Credit:
+    - For eligible contractors who construct energy-efficient homes
+    - $2,000 per qualifying dwelling unit
+
+120. Small Employer Health Insurance Credit:
+    - For small employers who provide health insurance coverage to their employees
+    - Up to 50% of employer-paid premiums (35% for tax-exempt employers)
