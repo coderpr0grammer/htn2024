@@ -4,7 +4,7 @@ import { Input } from "@/components/ui/input"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { StepProps } from "@/types/types"
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { CircleXIcon, RemoveFormattingIcon, Trash2 } from "lucide-react";
+import { CircleXIcon, RemoveFormattingIcon, Trash2, XIcon } from "lucide-react";
 import { useState } from "react";
 import { useFieldArray } from "react-hook-form";
 
@@ -108,8 +108,8 @@ const Step3: React.FC<StepProps> = ({ form }) => {
                                     </FormItem>
                                 )}
                             />
-                            <Button type="button" variant={"destructive"} className="mb-auto aspect-square" onClick={() => remove(index)}>
-                                <Trash2 className="scale-[2.5]" />
+                             <Button type="button" variant={"ghost"} className="mb-auto aspect-square" onClick={() => removeGoal(index)}>
+                                <XIcon className="scale-[2.5]" />
                             </Button>
                         </div>
                     ))}
