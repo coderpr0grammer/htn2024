@@ -30,6 +30,7 @@ import {
   ChartConfig,
   ChartContainer,
 } from "@/components/ui/chart"
+import { useAuth } from "@/app/infrastructure/auth/auth.context"
 
 const chartConfig = {
   amount: {
@@ -49,22 +50,17 @@ const chartConfig = {
   },
 } satisfies ChartConfig
 
-export function OverviewWidget(
-  {
-    liquidCash,
-    debt,
-    investedAssets
-  }: {
-    liquidCash: number,
-    debt: number,
-    investedAssets: number
-  }
-) {
+export function OverviewWidget() {
+
+  const { user } = useAuth()
+  const liquidCash = user?.data.liquidCash
+  const debt = user?.data.debt
+  const investedAssets = user?.data.investedAssets.reduce((acc: number, asset: { amount: string }) => acc + parseInt(asset.amount), 0)
 
   const chartData = [
-    { asset: "liquid", amount: liquidCash, fill: "var(--color-liquid)" },
-    { asset: "debt", amount: debt, fill: "var(--color-debt)" },
-    { asset: "investments", amount: investedAssets, fill: "var(--color-investments)" },
+    { asset: "liquid", amount: liquidCash, fill: "var(--color-liquid)", directFill: "hsl(var(--chart-1))" },
+    { asset: "debt", amount: debt, fill: "var(--color-debt)", directFill: "hsl(var(--chart-2))" },
+    { asset: "investments", amount: investedAssets, fill: "var(--color-investments)", directFill: "hsl(var(--chart-3))" },
   ]
 
   const commaFormat = new Intl.NumberFormat("en-US", {
@@ -79,16 +75,19 @@ export function OverviewWidget(
     >
       <CardHeader className="flex flex-row">
         <div className="flex flex-col gap-2">
-          {chartData.map(({ asset, amount, fill }) => (
-            <CardDescription key={asset} className="flex flex-col">
-              <div className="flex flex-row gap-1">
-                <span className="text-sm mb-[-3px]">{asset.charAt(0).toUpperCase() + asset.slice(1)}</span>
-              </div>
-              <span className="font-bold text-2xl text-black">
-                {commaFormat.format(amount)}
-              </span>
-            </CardDescription>
-          ))}
+          {chartData.map(({ asset, amount, fill, directFill }) => {
+            return (
+              <CardDescription key={asset} className="flex flex-col">
+                <div className="flex flex-row gap-1 align-middle">
+                  <div className="w-3 h-3 rounded-full my-auto" style={{ backgroundColor: directFill }} />
+                  <span className="text-sm">{asset.charAt(0).toUpperCase() + asset.slice(1)}</span>
+                </div>
+                <span className="font-bold text-2xl text-black">
+                  {commaFormat.format(amount)}
+                </span>
+              </CardDescription>
+            )
+          })}
         </div>
         <ChartContainer
           config={chartConfig}
