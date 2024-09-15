@@ -3,7 +3,7 @@ import { FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/comp
 import { Input } from "@/components/ui/input"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { StepProps } from "@/types/types"
-import { ScrollArea } from "@radix-ui/react-scroll-area";
+import { ScrollArea } from "@/components/ui/scroll-area";
 import { CircleXIcon, RemoveFormattingIcon, Trash2 } from "lucide-react";
 import { useState } from "react";
 import { useFieldArray } from "react-hook-form";

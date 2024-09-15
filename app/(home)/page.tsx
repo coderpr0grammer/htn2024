@@ -5,18 +5,35 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from 'next/link';
 import { useAuth } from '../infrastructure/auth/auth.context';
+import { useRouter } from 'next/navigation';
+import { toast } from 'sonner';
 
 export default function Home() {
 
-  const { googleLogin} = useAuth()
+  const { googleLogin } = useAuth()
+
+  const router = useRouter()
+
+
+  const loginWithGoogle = async () => {
+    try {
+      await googleLogin()
+      router.push('/dashboard')
+    } catch (error) {
+      console.log(error)
+      toast.error("Something went wrong. Please try again.")
+    }
+  }
+
+
   return (
     <div className="overflow-hidden m-0">
       <header className="flex flex-row m-4 gap-4">
         <Image src="/img/logo.svg" alt="logo" width={100} height={100} className="h-12 w-auto" />
         <Button onClick={googleLogin} className="ml-auto" variant={"ghost"} >
-          
-            Login
-          
+
+          Login
+
         </Button>
       </header>
       <section className="flex flex-col items-center gap-4 mt-28 px-4">
@@ -27,8 +44,8 @@ export default function Home() {
           Create a strong financial future with personalized insights, tools, and resources. No financial expertise required.
         </span>
         <Button onClick={googleLogin} size="lg">
-          
-            Get Started
+
+          Get Started
         </Button>
       </section>
       <div className="absolute bottom-0 w-full overflow-hidden pointer-events-none">

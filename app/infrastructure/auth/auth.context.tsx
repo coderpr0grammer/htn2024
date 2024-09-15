@@ -5,6 +5,7 @@ import { getAccessToken } from '@auth0/nextjs-auth0';
 import { AuthContextProps, User, UserData } from './auth.types';
 import { auth, db } from '@/lib/firebaseConfig';
 import { doc, getDoc, serverTimestamp, setDoc } from 'firebase/firestore';
+import LoadingIcon from '@/components/loading-icon';
 
 
 
@@ -138,9 +139,13 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
         });
     };
 
+
+
     return (
         <AuthContext.Provider value={{ user, loading, logout, googleLogin }}>
-            {loading ? <div>Loading...</div> : children}
+            {loading ? <div className='h-screen w-screen flex items-center justify-center'>
+                <LoadingIcon />
+            </div> : children}
         </AuthContext.Provider>
     );
 };
