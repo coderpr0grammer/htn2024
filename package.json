@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@ai-sdk/cohere": "^0.0.24",
     "@auth0/nextjs-auth0": "^3.5.0",
     "@hookform/resolvers": "^3.9.0",
     "@radix-ui/react-avatar": "^1.1.0",
@@ -27,6 +28,7 @@
     "@types/recharts": "^1.8.29",
     "aceternity": "^1.0.1",
     "aceternity-ui": "^0.2.2",
+    "ai": "^3.3.37",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "cohere-ai": "^7.13.1",

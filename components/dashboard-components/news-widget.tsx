@@ -1,11 +1,33 @@
 import { ArrowRight } from "lucide-react"
+import { useEffect, useState } from "react"
 
-interface NewsWidgetProps {
-  title: string;
-  description: string;
-}
+export default function NewsWidget() {
+  const [news, setNews] = useState({ title: '', description: '' });
+  const [loading, setLoading] = useState(true);
 
-export default function Component({ title, description }: NewsWidgetProps) {
+  useEffect(() => {
+    async function fetchNews() {
+      try {
+        // Update the API endpoint
+        const response = await fetch('/api/news');
+        if (!response.ok) throw new Error('Failed to fetch news');
+        const data = await response.json();
+        setNews(data);
+      } catch (error) {
+        console.error('Error fetching news:', error);
+        setNews({ title: 'Error', description: 'Failed to load news' });
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    fetchNews();
+  }, []);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <div className="w-full max-w-md mx-auto bg-white shadow-lg rounded-xl overflow-hidden">
       <div className="relative p-6">
@@ -21,10 +43,10 @@ export default function Component({ title, description }: NewsWidgetProps) {
 
         <div className="relative z-10">
           <h2 className="text-2xl font-bold text-gray-800 mb-2">
-            {title}
+            {news.title}
           </h2>
           <p className="text-sm text-gray-600 mb-4">
-            {description}
+            {news.description}
           </p>
           
           <div className="flex justify-between items-center">
