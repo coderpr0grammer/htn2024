@@ -4,13 +4,14 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { StepProps } from "@/types/types"
 import { Slider } from "@/components/ui/slider"
 import { cn } from "@/lib/utils"
+import { InvestmentTimeHorizonSliderComponent } from "@/components/investment-time-horizon-slider"
 
 
 const Step4: React.FC<StepProps> = ({ form }) => {
 
     return (
         <section className="space-y-2">
-            <div className="flex flex-col gap-3">
+            <div className="flex flex-col gap-6">
                 <FormField
                     control={form.control}
                     name="riskTolerance"
@@ -44,7 +45,9 @@ const Step4: React.FC<StepProps> = ({ form }) => {
                         <FormItem>
                             <FormLabel>Investment Horizon</FormLabel>
                             <FormControl>
-                                <Select onValueChange={field.onChange} defaultValue={field.value}>
+
+                                <InvestmentTimeHorizonSliderComponent {...field}  />
+                                {/* <Select onValueChange={field.onChange} defaultValue={field.value}>
                                     <SelectTrigger>
                                         <SelectValue placeholder="Investment Horizon" />
                                     </SelectTrigger>
@@ -52,8 +55,8 @@ const Step4: React.FC<StepProps> = ({ form }) => {
                                         <SelectItem value="short">Short</SelectItem>
                                         <SelectItem value="medium">Medium</SelectItem>
                                         <SelectItem value="long">Long</SelectItem>
-                                    </SelectContent>
-                                </Select>
+                                    </SelectContent> */}
+                                {/* </Select> */}
                             </FormControl>
                             <FormMessage />
                         </FormItem>
@@ -64,7 +67,7 @@ const Step4: React.FC<StepProps> = ({ form }) => {
                     name="profitPercentageGoal"
                     render={({ field }) => (
                         <FormItem>
-                            <FormLabel>Profit Percentage Goal</FormLabel>
+                            <FormLabel>What % do you aim to profit over this time?</FormLabel>
                             <FormControl>
                                 <Input type="number" placeholder="10" {...field} value={field.value ?? ''} onChange={(e) => field.onChange(e.target.valueAsNumber)} />
                             </FormControl>
@@ -91,7 +94,7 @@ const Step4: React.FC<StepProps> = ({ form }) => {
                         name="monthlyExpenses"
                         render={({ field }) => (
                             <FormItem>
-                                <FormLabel>Monthly Expenses Amount</FormLabel>
+                                <FormLabel>Monthly Expenses</FormLabel>
                                 <FormControl>
                                     <Input type="number" placeholder="10" {...field} value={field.value ?? ''} onChange={(e) => field.onChange(e.target.valueAsNumber)} />
                                 </FormControl>

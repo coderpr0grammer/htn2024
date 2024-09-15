@@ -108,7 +108,7 @@ const Step3: React.FC<StepProps> = ({ form }) => {
                                     </FormItem>
                                 )}
                             />
-                             <Button type="button" variant={"ghost"} className="mb-auto aspect-square" onClick={() => removeGoal(index)}>
+                             <Button type="button" variant={"ghost"} className="mb-auto aspect-square" onClick={() => remove(index)}>
                                 <XIcon className="scale-[2.5]" />
                             </Button>
                         </div>
