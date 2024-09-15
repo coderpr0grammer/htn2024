@@ -1,7 +1,7 @@
 "use client"
 
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useFieldArray, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { useState, useEffect, Suspense } from "react";
 import { Button } from "@/components/ui/button";
@@ -226,7 +226,7 @@ export default function OnboardingForm() {
                   </Button>
                 ) : (
                   <Button disabled={loading} type="submit" className="ml-auto">
-                    {loading ? <LoaderCircleIcon className="animate-spin"/> : 'Submit'}
+                    {loading ? <LoaderCircleIcon className="animate-spin" /> : 'Submit'}
                   </Button>
                 )}
               </div>

@@ -1,5 +1,6 @@
 import { ArrowRight } from "lucide-react"
 import { useEffect, useState } from "react"
+import { Card } from "../ui/card";
 
 export default function NewsWidget() {
   const [news, setNews] = useState({ title: '', description: '' });
@@ -29,7 +30,9 @@ export default function NewsWidget() {
   }
 
   return (
-    <div className="w-full max-w-md mx-auto bg-white shadow-lg rounded-xl overflow-hidden">
+    <Card
+      className="lg:max-w-md"
+    >
       <div className="relative p-6">
         <div className="absolute inset-0 opacity-10">
           <svg className="w-full h-full" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
@@ -58,6 +61,6 @@ export default function NewsWidget() {
           </div>
         </div>
       </div>
-    </div>
+    </Card>
   )
 }
