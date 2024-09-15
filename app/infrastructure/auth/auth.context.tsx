@@ -4,7 +4,7 @@ import { GoogleAuthProvider, signInWithCustomToken, signInWithPopup, signOut } f
 import { getAccessToken } from '@auth0/nextjs-auth0';
 import { AuthContextProps, User, UserData } from './auth.types';
 import { auth, db } from '@/lib/firebaseConfig';
-import { doc, getDoc, serverTimestamp, setDoc } from 'firebase/firestore';
+import { doc, getDoc, serverTimestamp, setDoc, updateDoc } from 'firebase/firestore';
 import LoadingIcon from '@/components/loading-icon';
 
 
@@ -67,6 +67,23 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
             return null;
         }
     };
+
+    const updateUserDocument = async (data: UserData): Promise<void> => {
+        const currentUser = auth.currentUser
+        if (!currentUser) {
+            console.error('User is null or undefined.');
+            return;
+        }
+        const userRef = doc(db, 'users', currentUser.uid);
+        try {
+            //update document
+            await updateDoc(userRef, data);
+        } catch (error) {
+            console.error('Error checking or creating user document:', error);
+            throw error;
+        }
+    };
+
 
     const createUserDocument = async (data: UserData | null): Promise<void> => {
 
@@ -142,7 +159,13 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 
 
     return (
-        <AuthContext.Provider value={{ user, loading, logout, googleLogin }}>
+        <AuthContext.Provider value={{
+            user,
+            loading,
+            logout,
+            googleLogin,
+            updateUserDocument
+        }}>
             {loading ? <div className='h-screen w-screen flex items-center justify-center'>
                 <LoadingIcon />
             </div> : children}

@@ -6,6 +6,7 @@ export interface AuthContextProps {
     loading: boolean;
     logout: () => Promise<void>;
     googleLogin: () => Promise<boolean>;
+    updateUserDocument: (data: UserData) => Promise<void>;
 }
 
 export type UserData = {
@@ -15,3 +16,4 @@ export type UserData = {
 export type User = FirebaseUser & {
     data: UserData
 }
+

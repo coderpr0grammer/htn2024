@@ -13,6 +13,8 @@ import Step4 from "./Steps/Step4";
 import { useRouter, useSearchParams } from "next/navigation";
 import Step5 from "./Steps/Step5";
 import { toast } from "sonner";
+import { useAuth } from "../infrastructure/auth/auth.context";
+import { LoaderCircleIcon } from "lucide-react";
 
 const assetSchema = z.object({
   name: z.string().min(1, "Please enter the asset name."),
@@ -67,9 +69,11 @@ function SearchParamsComponent({ setCurrentSection }: { setCurrentSection: (sect
 }
 
 export default function OnboardingForm() {
+  const { updateUserDocument } = useAuth()
   const router = useRouter();
   const [currentSection, setCurrentSection] = useState(0);
   const [direction, setDirection] = useState(0);
+  const [loading, setLoading] = useState(false);
 
   const form = useForm<FormData>({
     resolver: zodResolver(formSchema),
@@ -84,7 +88,7 @@ export default function OnboardingForm() {
       liquidCash: undefined,
       debt: undefined,
       investedAssets: [],
-      riskTolerance: "",
+      riskTolerance: "1",
       investmentHorizon: 15,
       profitPercentageGoal: undefined,
       monthsOfEmergencySavings: undefined,
@@ -115,9 +119,16 @@ export default function OnboardingForm() {
     router.push(`?step=${currentSection}`, undefined);
   }, [currentSection, router]);
 
-  const onSubmit = (values: FormData) => {
-    console.log(values);
-    // Handle final submission
+  const onSubmit = async (values: FormData) => {
+    try {
+      setLoading(true);
+      await updateUserDocument(values);
+    } catch (error: any) {
+      toast.error("Something went wrong. Please try again.")
+      console.error("Error updating user document:", error);
+    } finally {
+      setLoading(false);
+    }
   };
 
   const sectionFields: (keyof FormData)[][] = [
@@ -135,7 +146,7 @@ export default function OnboardingForm() {
       const isValid = await form.trigger(sectionFields[currentSection]);
       console.log("isValid", isValid)
       if (!isValid) {
-        toast.error("Please fill out all required fields.") 
+        toast.error("Please fill out all required fields.")
         return;
       }
     }
@@ -208,13 +219,13 @@ export default function OnboardingForm() {
                         handleNavigation(1)
                       }, 100);
                     }}
-                    // disabled={isNextDisabled}
+                  // disabled={isNextDisabled}
                   >
                     Next
                   </Button>
                 ) : (
-                  <Button type="submit" className="ml-auto">
-                    Submit
+                  <Button disabled={loading} type="submit" className="ml-auto">
+                    {loading ? <LoaderCircleIcon className="animate-spin"/> : 'Submit'}
                   </Button>
                 )}
               </div>
