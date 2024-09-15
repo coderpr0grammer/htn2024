@@ -1,3 +1,4 @@
+import { useAuth } from "@/app/infrastructure/auth/auth.context"
 import {
   Card,
   CardContent,
@@ -6,11 +7,47 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
+import { useEffect, useState } from "react"
 
-export function RiskToleranceWidget(
-  { personalRisk, portfolioRisk }:
-    { personalRisk: number, portfolioRisk: number }
-) {
+export function RiskToleranceWidget() {
+
+  const { user } = useAuth()
+
+  const personalRisk = user?.data.riskTolerance
+  const investedAssets = user?.data.investedAssets || []
+  if (investedAssets.length === 0) {
+    return null
+  }
+
+  const securitiesBeta = Math.random() * 1.5
+  const cryptoBeta = Math.random() * 2
+  const commoditiesBeta = Math.random() * 0.5
+
+  const sumAmount = investedAssets.reduce((acc: number, asset: { amount: number }) => acc + asset.amount, 0)
+
+  let portfolioRisk = 0
+  investedAssets.forEach((asset: { type: string, amount: number }) => {
+    switch (asset.type) {
+      case "securities":
+        portfolioRisk += securitiesBeta * asset.amount
+        return
+      case "crypto":
+        portfolioRisk += cryptoBeta * asset.amount
+        return
+      case "commodities":
+        portfolioRisk += commoditiesBeta * asset.amount
+        return
+    }
+  })
+
+  console.log(portfolioRisk)
+  portfolioRisk = portfolioRisk / sumAmount * 3
+
+  if (portfolioRisk > 3) {
+    portfolioRisk = 3
+  }
+
+  console.log(portfolioRisk)
 
   const delta = personalRisk - portfolioRisk
 
