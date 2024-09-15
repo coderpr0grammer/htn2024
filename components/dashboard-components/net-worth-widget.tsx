@@ -20,16 +20,16 @@ export function NetWorthWidget(
 
   return (
     <Card
-      className="h-full"
+      className="h-full flex items-center justify-center"
     >
-      <CardHeader className="space-y-0">
-        <CardDescription>
-          {"Your net worth is"}
+      <CardContent className="text-center">
+        <CardDescription className="mb-2">
+          Your net worth is
         </CardDescription>
         <CardTitle className="text-4xl">
           {formatter.format(worth)}
         </CardTitle>
-      </CardHeader>
+      </CardContent>
     </Card>
   )
 }
