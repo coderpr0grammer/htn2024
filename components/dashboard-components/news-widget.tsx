@@ -68,8 +68,9 @@ export default function NewsWidget() {
 
   return (
     <Card
-      className="lg:max-w-md max-h-full overflow-auto"
+      className="max-h-full overflow-auto col-span-2"
     >
+      
       <div className="relative p-6">
         <div className="absolute inset-0 opacity-10">
           {/* <svg className="w-full h-full" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">

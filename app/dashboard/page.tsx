@@ -20,7 +20,7 @@ export default function Dashboard() {
   return (
     <div className="overflow-hidden m-0 h-screen w-screen flex justify-center items-center flex-col">
 
-      <header className="flex flex-row  gap-4 w-full max-w-6xl px-2 py-4">
+      <header className="flex flex-row  gap-4 w-full max-w-6xl px-4 py-4">
           <div className='flex flex-row gap-4 items-center'>
             <Link href="/">
               <Image src="/img/logo.svg" alt="logo" width={100} height={100} className="h-12 w-auto" />

@@ -128,6 +128,9 @@ importers:
       sonner:
         specifier: ^1.5.0
         version: 1.5.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      swapy:
+        specifier: ^0.2.1
+        version: 0.2.1
       tailwind-merge:
         specifier: ^2.5.2
         version: 2.5.2
@@ -4341,6 +4344,9 @@ packages:
   svelte@4.2.19:
     resolution: {integrity: sha512-IY1rnGr6izd10B0A8LqsBfmlT5OILVuZ7XsI0vdGPEvuonFV7NYEUK4dAkm9Zg2q0Um92kYjTpS1CAP3Nh/KWw==}
     engines: {node: '>=16'}
+
+  swapy@0.2.1:
+    resolution: {integrity: sha512-11pu6YJMXtmJLXPeocyAtfaPZkOeby1mYdZNmhvvek9E8rMwfDbFk4Lwlbd+XaxBCSf3vMZwJo8DsNOKWkXmLA==}
 
   swr@2.2.5:
     resolution: {integrity: sha512-QtxqyclFeAsxEUeZIYmsaQ0UjimSq1RZ9Un7I68/0ClKK/U3LoyQunwkQfJZr2fc22DfIXLNDc2wFyTEikCUpg==}
@@ -10043,6 +10049,8 @@ snapshots:
       locate-character: 3.0.0
       magic-string: 0.30.11
       periscopic: 3.1.0
+
+  swapy@0.2.1: {}
 
   swr@2.2.5(react@18.3.1):
     dependencies:

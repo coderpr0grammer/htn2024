@@ -75,7 +75,6 @@ export function OverviewWidget(
 
   return (
     <Card
-      className="lg:max-w-md"
     >
       <CardHeader className="flex flex-row">
         <div className="flex flex-col gap-2">
