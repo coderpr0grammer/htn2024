@@ -164,9 +164,11 @@ export default function OnboardingForm() {
   ]
 
   return (
-    <div className="flex w-screen overflow-hidden items-center justify-center mt-10">
+    <div className="flex ">
       <div className="lg:p-8 h-full overflow-auto w-full px-8">
-        <div className="mx-auto flex h-full w-full flex-col justify-center space-y-6 px-4 sm:max-w-lg">
+
+
+        <div className="mx-auto flex h-full w-full flex-col py-10 space-y-6 px-4 sm:max-w-lg">
           <div className="flex flex-col space-y-2 text-center">
             <h1 className="text-2xl font-semibold tracking-tight">
               {titles[currentSection]}
