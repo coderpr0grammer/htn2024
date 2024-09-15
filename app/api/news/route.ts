@@ -5,10 +5,17 @@ const cohere = new CohereClient({
   token: process.env.COHERE_API_KEY,
 });
 
-export async function GET() {
+export async function GET(request: Request) {
+  const { searchParams } = new URL(request.url);
+  const interest = searchParams.get('interest');
+
+  if (!interest) {
+    return NextResponse.json({ error: 'Interest parameter is required' }, { status: 400 });
+  }
+
   try {
     const response = await cohere.chat({
-      message: 'Provide a brief summary of the latest stock market news, focusing on major indices and trending stocks. Include a catchy title.',
+      message: `Provide a brief summary of the latest news related to ${interest}, focusing on major developments and trends. Include a catchy title.`,
       connectors: [{ id: 'web-search' }],
     });
 
@@ -21,7 +28,7 @@ export async function GET() {
 
     return NextResponse.json({ title, description });
   } catch (error) {
-    console.error('Error fetching stock news:', error);
-    return NextResponse.json({ error: 'Failed to fetch stock news' }, { status: 500 });
+    console.error('Error fetching news:', error);
+    return NextResponse.json({ error: 'Failed to fetch news' }, { status: 500 });
   }
 }
