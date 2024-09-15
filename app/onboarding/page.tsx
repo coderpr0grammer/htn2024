@@ -21,11 +21,11 @@ const assetSchema = z.object({
 });
 
 const interestsSchema = z.object({
-  name: z.string().min(1, "Please enter the interest."),
+  name: z.string().min(1, "Please enter an interest."),
 });
 
 const goalsSchema = z.object({
-  name: z.string().min(1, "Please enter the goal."),
+  name: z.string().min(1, "Please enter a goal."),
 });
 
 const formSchema = z.object({
@@ -130,13 +130,16 @@ export default function OnboardingForm() {
 
   const handleNavigation = async (newDirection: number) => {
     const isMovingForward = newDirection > 0;
+
     if (isMovingForward) {
       const isValid = await form.trigger(sectionFields[currentSection]);
+      console.log("isValid", isValid)
       if (!isValid) {
         toast.error("Please fill out all required fields.") 
         return;
       }
     }
+
     setDirection(newDirection);
     setCurrentSection((prev) => prev + newDirection);
   };
