@@ -3,7 +3,7 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { Button } from "@/components/ui/button";
 import { Form } from "@/components/ui/form";
 import Step1 from "./Steps/Step1";
@@ -11,6 +11,12 @@ import Step2 from "./Steps/Step2";
 import Step3 from "./Steps/Step3";
 import Step4 from "./Steps/Step4";
 import { useRouter, useSearchParams } from "next/navigation";
+
+const assetSchema = z.object({
+  name: z.string().min(1, "Please enter the asset name."),
+  type: z.string().min(1, "Please enter the asset type."),
+  amount: z.number().min(0, "Please enter the asset amount."),
+});
 
 const formSchema = z.object({
   firstName: z.string().min(1, "Please enter your first name."),
@@ -22,7 +28,7 @@ const formSchema = z.object({
   salary: z.number().min(0, "Please enter your salary."),
   liquidCash: z.number().min(0, "Please enter your liquid cash."),
   debt: z.number().min(0, "Enter your debt or $0 if you have none."),
-  investedAssets: z.number().min(0, "Please enter your invested assets."),
+  investedAssets: z.array(assetSchema).nonempty("Please add at least one asset."),
   riskTolerance: z.string().min(1, "Please select your risk tolerance."),
   investmentHorizon: z.string().min(1, "Please select your investment horizon."),
   profitPercentageGoal: z.number().min(0, "Please enter your profit percentage goal."),
@@ -36,12 +42,19 @@ export type FormProps = {
 
 const steps = [Step1, Step2, Step3, Step4];
 
-export default function OnboardingForm() {
-  const router = useRouter();
+function SearchParamsComponent({ setCurrentSection }: { setCurrentSection: (section: number) => void }) {
   const searchParams = useSearchParams();
   const initialSection = parseInt(searchParams.get("step") as string, 10) || 0;
+  useEffect(() => {
+    setCurrentSection(initialSection);
+  }, [initialSection, setCurrentSection]);
 
-  const [currentSection, setCurrentSection] = useState(initialSection);
+  return null;
+}
+
+export default function OnboardingForm() {
+  const router = useRouter();
+  const [currentSection, setCurrentSection] = useState(0);
   const [direction, setDirection] = useState(0);
 
   const form = useForm<FormData>({
@@ -133,6 +146,9 @@ export default function OnboardingForm() {
 
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} >
+              <Suspense fallback={<div>Loading...</div>}>
+                <SearchParamsComponent setCurrentSection={setCurrentSection} />
+              </Suspense>
 
               <CurrentStep form={form} />
 
@@ -149,7 +165,6 @@ export default function OnboardingForm() {
                     onClick={() => {
                       setTimeout(() => {
                         handleNavigation(1)
-
                       }, 100);
                     }}
                     disabled={isNextDisabled}
