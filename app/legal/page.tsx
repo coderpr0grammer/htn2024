@@ -36,7 +36,7 @@ export default function TermsOfService() {
 
           <div className="mt-8 border-t pt-6">
             <h3 className="text-xl font-semibold text-gray-800 mb-2">Contact Us</h3>
-            <p className="text-gray-600">If you have any questions regarding these Terms, please contact us at <a href="mailto:support@notfa.co" className="text-blue-600 hover:underline">support@notfa.co</a>.</p>
+            <p className="text-gray-600">If you have any questions regarding these Terms, contact us at <a href="mailto:support@notfa.co" className="text-blue-600 hover:underline">support@notfa.co</a>.</p>
           </div>
         </CardContent>
       </Card>
