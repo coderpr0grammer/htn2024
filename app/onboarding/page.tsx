@@ -67,7 +67,7 @@ export default function OnboardingForm() {
     // Load form data from localStorage if available
     const savedData = localStorage.getItem('formData');
     if (savedData) {
-        form.reset(JSON.parse(savedData));
+      form.reset(JSON.parse(savedData));
     }
   }, [form]);
 
@@ -146,7 +146,12 @@ export default function OnboardingForm() {
                   <Button
                     type="button"
                     className="ml-auto"
-                    onClick={() => handleNavigation(1)}
+                    onClick={() => {
+                      setTimeout(() => {
+                        handleNavigation(1)
+
+                      }, 100);
+                    }}
                     disabled={isNextDisabled}
                   >
                     Next

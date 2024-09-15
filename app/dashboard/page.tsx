@@ -5,6 +5,10 @@ import {
   AvatarFallback,
 } from "@/components/ui/avatar"
 
+import { Charts } from "./main"
+import { SidebarLayout } from '@/components/ui/sidebar';
+import { cookies } from 'next/headers';
+
 export default function Dashboard() {
 
   const greeting = new Date().getHours() < 12
@@ -13,19 +17,19 @@ export default function Dashboard() {
       ? "Good afternoon"
       : "Good evening";
 
+
   return (
-    <div className="overflow-hidden m-0">
-      <header className="flex flex-row m-4 gap-4">
-        <Image src="/img/logo.svg" alt="logo" width={100} height={100} className="h-12 w-auto" />
-        <div className='ml-auto flex flex-row font-bold gap-4 my-auto align-middle'>
-          <span className='h-6 my-auto'>Firstname Lastname</span>
-          <Avatar>
-            <AvatarFallback>FL</AvatarFallback>
-          </Avatar>
+    <SidebarLayout
+      defaultOpen={cookies().get("sidebar:state")?.value === "true"}
+    >
+      {/* <AppSidebar /> */}
+      <main className="flex flex-1 flex-col p-2 transition-all duration-300 ease-in-out">
+        <div className="h-full rounded-md border-2 border-dashed">
+          {/* <SidebarTrigger /> */}
+
+          <Charts/>
         </div>
-      </header>
-      <section className="flex flex-col max-w-4xl mx-auto gap-4">
-      </section>
-    </div>
+      </main>
+    </SidebarLayout>
   );
 }
