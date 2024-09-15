@@ -7,7 +7,7 @@ import { RiskToleranceWidget } from "@/components/dashboard-components/risk-tole
 
 export function DashboardMain() {
   return (
-    <div className="chart-wrapper mx-auto h-full overflow-hidden flex max-w-6xl flex-col gap-6 pb-6 sm:flex-row sm:pb-8">
+    <div className="chart-wrapper w-full justify-center items-center h-full overflow-hidden flex max-w-6xl flex-col gap-6 pb-6 sm:flex-row sm:pb-8">
       <div className="grid w-full gap-6 sm:grid-rows-2  grid-flow-col px-4">
 
         <NetWorthWidget worth={123456} />
