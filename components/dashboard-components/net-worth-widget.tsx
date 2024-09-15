@@ -20,7 +20,7 @@ export function NetWorthWidget(
 
   return (
     <Card
-      className="lg:max-w-md"
+      className="h-full"
     >
       <CardHeader className="space-y-0">
         <CardDescription>
