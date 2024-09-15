@@ -123,6 +123,7 @@ export default function OnboardingForm() {
     try {
       setLoading(true);
       await updateUserDocument(values);
+      router.push('/dashboard')
     } catch (error: any) {
       toast.error("Something went wrong. Please try again.")
       console.error("Error updating user document:", error);
