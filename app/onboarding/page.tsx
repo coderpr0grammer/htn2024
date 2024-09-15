@@ -127,7 +127,7 @@ export default function OnboardingForm() {
               Welcome to NFA.
             </h1>
             <p className="text-sm text-muted-foreground">
-              Let's get started with the basics.
+              {"Let's get started with the basics."}
             </p>
           </div>
 
