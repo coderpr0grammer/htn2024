@@ -67,7 +67,7 @@ export default function OnboardingForm() {
     // Load form data from localStorage if available
     const savedData = localStorage.getItem('formData');
     if (savedData) {
-        form.reset(JSON.parse(savedData));
+      form.reset(JSON.parse(savedData));
     }
   }, [form]);
 
@@ -127,7 +127,7 @@ export default function OnboardingForm() {
               Welcome to NFA.
             </h1>
             <p className="text-sm text-muted-foreground">
-              Let's get started with the basics.
+              {"Let's get started with the basics."}
             </p>
           </div>
 
