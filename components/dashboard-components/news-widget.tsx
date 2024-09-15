@@ -67,16 +67,18 @@ export default function NewsWidget() {
   const currentNews = newsItems[currentInterestName] || { title: '', description: '' }
 
   return (
-    <Card className="lg:max-w-md">
+    <Card
+      className="lg:max-w-md max-h-full overflow-auto"
+    >
       <div className="relative p-6">
         <div className="absolute inset-0 opacity-10">
-          <svg className="w-full h-full" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+          {/* <svg className="w-full h-full" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
             <circle cx="40" cy="40" r="20" fill="#FFA07A" />
             <circle cx="160" cy="40" r="20" fill="#98FB98" />
             <circle cx="40" cy="160" r="20" fill="#87CEFA" />
             <circle cx="160" cy="160" r="20" fill="#DDA0DD" />
             <circle cx="100" cy="100" r="30" fill="#F0E68C" />
-          </svg>
+          </svg> */}
         </div>
 
         <div className="relative z-10">
@@ -116,17 +118,13 @@ export default function NewsWidget() {
               </button>
               <button 
                 onClick={handleReload}
-                className="bg-green-500 text-white p-2 rounded-full hover:bg-green-600 transition-colors"
+                className="bg-primary cursor-pointer text-white p-2 rounded-full hover:bg-primary transition-colors"
                 disabled={loading}
               >
                 <RefreshCw size={20} className={loading ? 'animate-spin' : ''} />
                 <span className="sr-only">Reload news</span>
               </button>
-              <button 
-                onClick={handleNext}
-                className="bg-blue-500 text-white p-2 rounded-full hover:bg-blue-600 transition-colors"
-                disabled={loading || interests.length <= 1}
-              >
+              <button className="bg-blue-500 text-white p-2 rounded-full hover:bg-blue-600 transition-colors">
                 <ArrowRight size={20} />
                 <span className="sr-only">Next topic</span>
               </button>

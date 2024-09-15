@@ -8,7 +8,8 @@ import { useFieldArray } from "react-hook-form";
 
 const Step5: React.FC<StepProps> = ({ form }) => {
 
-    const { control, handleSubmit, register, formState: { errors } } = form;
+    const { control, formState: { errors } } = form;
+    
     const { fields: interests, append, remove } = useFieldArray({
         control,
         name: "interests"
@@ -18,6 +19,8 @@ const Step5: React.FC<StepProps> = ({ form }) => {
         control,
         name: "goals"
     });
+
+    console.log(interests)
 
     return (
         <section className="space-y-2">

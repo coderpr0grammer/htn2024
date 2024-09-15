@@ -24,7 +24,7 @@ export function NetWorthWidget(
     >
       <CardHeader className="space-y-0">
         <CardDescription>
-          {"Your net worth is:"}
+          {"Your net worth is"}
         </CardDescription>
         <CardTitle className="text-4xl">
           {formatter.format(worth)}

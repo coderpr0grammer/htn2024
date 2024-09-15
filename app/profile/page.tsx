@@ -30,6 +30,7 @@ const goalsSchema = z.object({
   name: z.string().min(1, "Please enter a goal."),
 });
 
+
 const formSchema = z.object({
   firstName: z.string().min(1, "Please enter your first name."),
   lastName: z.string().min(1, "Please enter your last name."),
@@ -182,6 +183,7 @@ export default function OnboardingForm() {
     "Let's talk about your interests and goals.",
   ]
 
+  console.log(form.formState.errors)
   return (
     <div className="flex ">
       <div className="lg:p-8 h-full overflow-auto w-full px-8">
