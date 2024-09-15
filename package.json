@@ -29,6 +29,7 @@
     "aceternity-ui": "^0.2.2",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
+    "cohere-ai": "^7.13.1",
     "dotenv": "^16.4.5",
     "firebase": "^10.13.1",
     "firebase-admin": "^12.5.0",
