@@ -54,7 +54,7 @@ const Step3: React.FC<StepProps> = ({ form }) => {
                     <FormLabel>Asset Type</FormLabel>
                     <FormLabel>Asset Value</FormLabel>
                 </div>
-                <ScrollArea className="max-h-40 rounded-md overflow-scroll flex flex-col gap-2">
+                {/* <ScrollArea className="max-h-40 rounded-md overflow-scroll flex flex-col gap-2"> */}
                     {fields.map((field, index) => (
                         <div className="flex flex-row align-top gap-2" key={field.id}>
                             <FormField
@@ -113,7 +113,7 @@ const Step3: React.FC<StepProps> = ({ form }) => {
                             </Button>
                         </div>
                     ))}
-                </ScrollArea>
+                {/* </ScrollArea> */}
 
                 <Button type="button" variant={"outline"} onClick={() => append({ name: "", type: "", amount: 0 })}>
                     Add New Asset

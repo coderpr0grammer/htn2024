@@ -55,7 +55,7 @@ const Step5: React.FC<StepProps> = ({ form }) => {
                 <span className="font-semibold">
                     Financial Goals
                 </span>
-                <ScrollArea className="lg:max-h-40 max-h-32 rounded-md overflow-scroll flex flex-col gap-2">
+                {/* <ScrollArea className="lg:max-h-40 max-h-32 rounded-md overflow-scroll flex flex-col gap-2"> */}
                     {goals.map((field, index) => (
                         <div className="flex flex-row align-top gap-2" key={field.id}>
                             <FormField
@@ -75,7 +75,7 @@ const Step5: React.FC<StepProps> = ({ form }) => {
                             </Button>
                         </div>
                     ))}
-                </ScrollArea>
+                {/* </ScrollArea> */}
 
                 <Button type="button" variant={"outline"} onClick={() => {
                     appendGoal({ name: "" })
