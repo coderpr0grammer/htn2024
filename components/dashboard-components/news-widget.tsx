@@ -1,5 +1,6 @@
 import { ArrowRight } from "lucide-react"
 import { useEffect, useState } from "react"
+import { Skeleton } from "@/components/ui/skeleton"
 
 export default function NewsWidget() {
   const [news, setNews] = useState({ title: '', description: '' });
@@ -8,7 +9,6 @@ export default function NewsWidget() {
   useEffect(() => {
     async function fetchNews() {
       try {
-        // Update the API endpoint
         const response = await fetch('/api/news');
         if (!response.ok) throw new Error('Failed to fetch news');
         const data = await response.json();
@@ -24,10 +24,6 @@ export default function NewsWidget() {
     fetchNews();
   }, []);
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-
   return (
     <div className="w-full max-w-md mx-auto bg-white shadow-lg rounded-xl overflow-hidden">
       <div className="relative p-6">
@@ -42,12 +38,25 @@ export default function NewsWidget() {
         </div>
 
         <div className="relative z-10">
-          <h2 className="text-2xl font-bold text-gray-800 mb-2">
-            {news.title}
-          </h2>
-          <p className="text-sm text-gray-600 mb-4">
-            {news.description}
-          </p>
+          {loading ? (
+            <Skeleton className="h-8 w-3/4 mb-2" />
+          ) : (
+            <h2 className="text-2xl font-bold text-gray-800 mb-2">
+              {news.title}
+            </h2>
+          )}
+          
+          {loading ? (
+            <>
+              <Skeleton className="h-4 w-full mb-2" />
+              <Skeleton className="h-4 w-5/6 mb-2" />
+              <Skeleton className="h-4 w-4/6 mb-4" />
+            </>
+          ) : (
+            <p className="text-sm text-gray-600 mb-4">
+              {news.description}
+            </p>
+          )}
 
           <div className="flex justify-between items-center">
             <span className="text-xs text-gray-400">Powered by Cohere</span>
