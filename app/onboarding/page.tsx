@@ -12,6 +12,7 @@ import Step3 from "./Steps/Step3";
 import Step4 from "./Steps/Step4";
 import { useRouter, useSearchParams } from "next/navigation";
 import Step5 from "./Steps/Step5";
+import { toast } from "sonner";
 
 const assetSchema = z.object({
   name: z.string().min(1, "Please enter the asset name."),
@@ -37,9 +38,9 @@ const formSchema = z.object({
   salary: z.number().min(0, "Please enter your salary."),
   liquidCash: z.number().min(0, "Please enter your liquid cash."),
   debt: z.number().min(0, "Enter your debt or $0 if you have none."),
-  investedAssets: z.array(assetSchema).nonempty("Please add at least one asset."),
+  investedAssets: z.array(assetSchema),
   riskTolerance: z.string().min(1, "Please select your risk tolerance."),
-  investmentHorizon: z.string().min(1, "Please select your investment horizon."),
+  investmentHorizon: z.number().min(1, "Please select your investment horizon."),
   profitPercentageGoal: z.number().min(0, "Please enter your profit percentage goal."),
   monthsOfEmergencySavings: z.number().min(1, "Please enter the number of months of emergency savings."),
   monthlyExpenses: z.number().min(1, "Please enter your monthly expenses."),
@@ -84,7 +85,7 @@ export default function OnboardingForm() {
       debt: undefined,
       investedAssets: [],
       riskTolerance: "",
-      investmentHorizon: "",
+      investmentHorizon: 15,
       profitPercentageGoal: undefined,
       monthsOfEmergencySavings: undefined,
       monthlyExpenses: undefined,
@@ -131,7 +132,10 @@ export default function OnboardingForm() {
     const isMovingForward = newDirection > 0;
     if (isMovingForward) {
       const isValid = await form.trigger(sectionFields[currentSection]);
-      if (!isValid) return;
+      if (!isValid) {
+        toast.error("Please fill out all required fields.") 
+        return;
+      }
     }
     setDirection(newDirection);
     setCurrentSection((prev) => prev + newDirection);
@@ -140,10 +144,10 @@ export default function OnboardingForm() {
   const currentFields = sectionFields[currentSection];
 
   // Recalculate isNextDisabled
-  const isNextDisabled = currentFields.some((field) => {
-    const fieldValue = form.getValues(field);
-    return fieldValue === undefined || fieldValue === "" || form.formState.errors[field] !== undefined;
-  });
+  // const isNextDisabled = currentFields.some((field) => {
+  //   const fieldValue = form.getValues(field);
+  //   return fieldValue === undefined || fieldValue === "" || form.formState.errors[field] !== undefined;
+  // });
 
   const CurrentStep = steps[currentSection];
 
@@ -201,7 +205,7 @@ export default function OnboardingForm() {
                         handleNavigation(1)
                       }, 100);
                     }}
-                    disabled={isNextDisabled}
+                    // disabled={isNextDisabled}
                   >
                     Next
                   </Button>
