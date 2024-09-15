@@ -1,24 +1,35 @@
-"use client"
-
-import { Pie, PieChart } from "recharts"
-
+import {
+  Area,
+  AreaChart,
+  Bar,
+  BarChart,
+  CartesianGrid,
+  Label,
+  LabelList,
+  Line,
+  LineChart,
+  Pie,
+  PieChart,
+  PolarAngleAxis,
+  RadialBar,
+  RadialBarChart,
+  Rectangle,
+  ReferenceLine,
+  XAxis,
+  YAxis,
+} from "recharts"
 import {
   Card,
   CardContent,
   CardDescription,
+  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
 import {
   ChartConfig,
   ChartContainer,
-  ChartLegend,
-  ChartLegendContent,
-  ChartTooltip,
-  ChartTooltipContent,
 } from "@/components/ui/chart"
-
-export const description = "A pie chart with a legend"
 
 const chartConfig = {
   amount: {
@@ -35,14 +46,6 @@ const chartConfig = {
   investments: {
     label: "Investments",
     color: "hsl(var(--chart-3))",
-  },
-  edge: {
-    label: "Edge",
-    color: "hsl(var(--chart-4))",
-  },
-  other: {
-    label: "Other",
-    color: "hsl(var(--chart-5))",
   },
 } satisfies ChartConfig
 
@@ -71,16 +74,17 @@ export function OverviewWidget(
   })
 
   return (
-    <Card className="max-w-xs shadow-lg">
-      <CardContent className="flex flex-row">
-        <div className="p-4 flex flex-col gap-2">
+    <Card
+      className="lg:max-w-md"
+    >
+      <CardHeader className="flex flex-row">
+        <div className="flex flex-col gap-2">
           {chartData.map(({ asset, amount, fill }) => (
             <CardDescription key={asset} className="flex flex-col">
               <div className="flex flex-row gap-1">
-                <span className="w-3 h-3 rounded-full inline-block mr-2" style={{ backgroundColor: fill }} />
                 <span className="text-sm mb-[-3px]">{asset.charAt(0).toUpperCase() + asset.slice(1)}</span>
               </div>
-              <span className="font-bold text-xl text-black">
+              <span className="font-bold text-2xl text-black">
                 {commaFormat.format(amount)}
               </span>
             </CardDescription>
@@ -88,7 +92,7 @@ export function OverviewWidget(
         </div>
         <ChartContainer
           config={chartConfig}
-          className="mx-auto aspect-square w-40 h-40 my-auto"
+          className="ml-auto aspect-square w-40 h-40 my-auto"
         >
           <PieChart>
             <Pie
@@ -98,7 +102,7 @@ export function OverviewWidget(
             />
           </PieChart>
         </ChartContainer>
-      </CardContent>
+      </CardHeader>
     </Card>
   )
 }

@@ -7,9 +7,8 @@ export async function GET() {
     const { text } = await generateText({
       model: cohere('command-r-plus'),
       prompt: 'Provide a brief summary of the latest stock market news, focusing on major indices and trending stocks. Include a catchy title.',
-      // Add temperature and max_tokens parameters
       temperature: 0.7,
-      maxTokens: 300,
+      maxTokens: 150,
     });
 
     const [title, ...descriptionParts] = text.split('\n\n');

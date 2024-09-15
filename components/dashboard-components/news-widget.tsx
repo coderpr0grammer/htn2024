@@ -48,7 +48,7 @@ export default function NewsWidget() {
           <p className="text-sm text-gray-600 mb-4">
             {news.description}
           </p>
-          
+
           <div className="flex justify-between items-center">
             <span className="text-xs text-gray-400">Powered by Cohere</span>
             <button className="bg-blue-500 text-white p-2 rounded-full hover:bg-blue-600 transition-colors">
